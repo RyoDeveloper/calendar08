@@ -1,5 +1,5 @@
 //
-//  SideberView.swift
+//  SidebarViewView.swift
 //  Noren
 //
 //  https://github.com/RyoDeveloper/Noren
@@ -9,13 +9,13 @@
 import SwiftUI
 
 enum NavigationPage: CaseIterable {
-    case calender
+    case calendar
     case reminder
     case clock
     case settings
 }
 
-struct SideberView: View {
+struct SidebarView: View {
     @Binding var page: NavigationPage?
     @Binding var date: Date
 
@@ -23,7 +23,7 @@ struct SideberView: View {
         List(selection: $page) {
             DatePicker("", selection: $date, displayedComponents: .date)
                 .datePickerStyle(.graphical)
-            NavigationLink(value: NavigationPage.calender) {
+            NavigationLink(value: NavigationPage.calendar) {
                 Label("カレンダー", systemImage: "calendar")
             }
             NavigationLink(value: NavigationPage.reminder) {
@@ -39,8 +39,8 @@ struct SideberView: View {
     }
 }
 
-struct SideberView_Previews: PreviewProvider {
+struct SidebarView_Previews: PreviewProvider {
     static var previews: some View {
-        SideberView(page: .constant(.calender), date: .constant(Date()))
+        SidebarView(page: .constant(.calendar), date: .constant(Date()))
     }
 }

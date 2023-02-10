@@ -9,13 +9,15 @@
 import SwiftUI
 
 struct CalendarView: View {
+    @Binding var date: Date
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        OneDayCalendarView(date: $date)
     }
 }
 
 struct CalendarView_Previews: PreviewProvider {
     static var previews: some View {
-        CalendarView()
+        CalendarView(date: .constant(Date()))
     }
 }

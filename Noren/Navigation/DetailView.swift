@@ -13,9 +13,9 @@ struct DetailView: View {
     @Binding var date: Date
 
     var body: some View {
-        switch page ?? .calender {
-        case .calender:
-            CalendarView()
+        switch page ?? .calendar {
+        case .calendar:
+            CalendarView(date: $date)
         case .reminder:
             ReminderView()
         case .clock:
@@ -28,6 +28,6 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(page: .constant(.calender), date: .constant(Date()))
+        DetailView(page: .constant(.calendar), date: .constant(Date()))
     }
 }
