@@ -9,14 +9,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var page: NavigationPage? = NavigationPage.calender
+    @State var date = Date()
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationSplitView {
+            SideberView(page: $page, date: $date)
+        } detail: {
+            DetailView(page: $page, date: $date)
         }
-        .padding()
     }
 }
 
