@@ -15,13 +15,13 @@ struct DetailView: View {
     var body: some View {
         switch page ?? .calender {
         case .calender:
-            Text("ca")
+            CalendarView()
         case .reminder:
-            Text("r")
+            ReminderView()
         case .clock:
-            Text("cl")
+            ClockView()
         case .settings:
-            Text("s")
+            SettingsView()
         }
     }
 }
