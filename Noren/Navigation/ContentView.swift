@@ -9,11 +9,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var page: NavigationPage? = NavigationPage.calender
+    @State var date = Date()
+
     var body: some View {
         NavigationSplitView {
-            SideberView()
+            SideberView(page: $page, date: $date)
         } detail: {
-            DetailView()
+            DetailView(page: $page, date: $date)
         }
     }
 }
