@@ -23,6 +23,9 @@ struct SidebarView: View {
         List(selection: $page) {
             DatePicker("", selection: $date, displayedComponents: .date)
                 .datePickerStyle(.graphical)
+                .onChange(of: date) { newValue in
+                    page = .calendar
+                }
             NavigationLink(value: NavigationPage.calendar) {
                 Label("カレンダー", systemImage: "calendar")
             }
