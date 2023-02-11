@@ -23,4 +23,23 @@ class CreatePlanViewModel: ObservableObject {
     @Published var calendar: EKCalendar?
     // メモ
     @Published var memo = ""
+
+    func createPlan(eventKitManager: EventKitManager) {
+        let plansTitle = title.split(whereSeparator: \.isWhitespace)
+
+        if type == .event {
+            // イベントの追加
+            plansTitle.forEach { title in
+                let event = EKEvent(eventStore: eventKitManager.store)
+                event.title = String(title)
+                event.isAllDay = isAllDay
+                event.startDate = start
+                event.endDate = end
+                event.calendar = calendar ?? eventKitManager.store.defaultCalendarForNewEvents
+                eventKitManager.createPlan(plan: Plan(event))
+            }
+        } else if type == .reminder {
+            // リマインダーの追加
+        }
+    }
 }

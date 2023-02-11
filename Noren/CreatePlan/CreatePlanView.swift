@@ -10,6 +10,7 @@ import EventKit
 import SwiftUI
 
 struct CreatePlanView: View {
+    @EnvironmentObject var eventKitManager: EventKitManager
     @StateObject var viewModel = CreatePlanViewModel()
     // 親ViewのSheetのフラグ
     @Environment(\.dismiss) var dismiss
@@ -52,8 +53,11 @@ struct CreatePlanView: View {
                 }
 
                 ToolbarItem(placement: .primaryAction) {
-                    Button("追加") {}
-                        .disabled(viewModel.title.split(whereSeparator: \.isWhitespace).count == 0)
+                    Button("追加") {
+                        viewModel.createPlan(eventKitManager: eventKitManager)
+                        dismiss()
+                    }
+                    .disabled(viewModel.title.split(whereSeparator: \.isWhitespace).count == 0)
                 }
             }
             .navigationTitle("\(viewModel.title.split(whereSeparator: \.isWhitespace).count)個の" + viewModel.type.getName())
