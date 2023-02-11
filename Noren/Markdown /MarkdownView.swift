@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import RDMarkdownKit
 
 enum MarkdownPage {
     case text
@@ -23,8 +24,7 @@ struct MarkdownView: View {
                 .tabItem {
                     Label("エディター", systemImage: "square.and.pencil")
                 }
-            Text(text)
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            Markdown($text)
                 .tabItem {
                     Label("プレビュー", systemImage: "number")
                 }

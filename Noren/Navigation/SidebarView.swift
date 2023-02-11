@@ -42,12 +42,12 @@ struct SidebarView: View {
             NavigationLink(value: NavigationPage.reminder) {
                 Label("リマインダー", systemImage: "checkmark.circle")
             }
-            NavigationLink(value: NavigationPage.clock) {
-                Label("時計", systemImage: "clock")
-            }
-            NavigationLink(value: NavigationPage.settings) {
-                Label("設定", systemImage: "gearshape")
-            }
+//            NavigationLink(value: NavigationPage.clock) {
+//                Label("時計", systemImage: "clock")
+//            }
+//            NavigationLink(value: NavigationPage.settings) {
+//                Label("設定", systemImage: "gearshape")
+//            }
         }
     }
 }

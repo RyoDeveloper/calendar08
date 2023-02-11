@@ -23,6 +23,8 @@
 		2A1B5FE02997D9A300DD22DA /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1B5FDF2997D9A300DD22DA /* Date.swift */; };
 		2A1B5FE22997E92500DD22DA /* CalendarReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1B5FE12997E92500DD22DA /* CalendarReminderView.swift */; };
 		2A1B5FE42997FCB700DD22DA /* VerticalReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1B5FE32997FCB700DD22DA /* VerticalReminderView.swift */; };
+		2A1B5FEA299809C900DD22DA /* RDMarkdownKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2A1B5FE9299809C900DD22DA /* RDMarkdownKit */; };
+		2A1B5FED29980A6700DD22DA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A1B5FEF29980A6700DD22DA /* Localizable.strings */; };
 		2A278B392997A270007D57DB /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A278B382997A270007D57DB /* Int.swift */; };
 		2A74DC1E29975E86003926DC /* CreatePlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A74DC1D29975E86003926DC /* CreatePlanView.swift */; };
 		2A74DC2029975E9A003926DC /* CreatePlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A74DC1F29975E9A003926DC /* CreatePlanViewModel.swift */; };
@@ -51,6 +53,8 @@
 		2A1B5FDF2997D9A300DD22DA /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		2A1B5FE12997E92500DD22DA /* CalendarReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarReminderView.swift; sourceTree = "<group>"; };
 		2A1B5FE32997FCB700DD22DA /* VerticalReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalReminderView.swift; sourceTree = "<group>"; };
+		2A1B5FEE29980A6700DD22DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2A1B5FF029980A6B00DD22DA /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2A278B382997A270007D57DB /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		2A74DC1D29975E86003926DC /* CreatePlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanView.swift; sourceTree = "<group>"; };
 		2A74DC1F29975E9A003926DC /* CreatePlanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanViewModel.swift; sourceTree = "<group>"; };
@@ -68,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A1B5FEA299809C900DD22DA /* RDMarkdownKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,6 +167,7 @@
 		2AB9C44E2996911800C28B6D = {
 			isa = PBXGroup;
 			children = (
+				2A1B5FEF29980A6700DD22DA /* Localizable.strings */,
 				2AB9C4592996911900C28B6D /* Noren */,
 				2AB9C4582996911900C28B6D /* Products */,
 			);
@@ -226,6 +232,9 @@
 			dependencies = (
 			);
 			name = Noren;
+			packageProductDependencies = (
+				2A1B5FE9299809C900DD22DA /* RDMarkdownKit */,
+			);
 			productName = Noren;
 			productReference = 2AB9C4572996911900C28B6D /* Noren.app */;
 			productType = "com.apple.product-type.application";
@@ -252,8 +261,12 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 2AB9C44E2996911800C28B6D;
+			packageReferences = (
+				2A1B5FE8299809C900DD22DA /* XCRemoteSwiftPackageReference "RDMarkdownKitBeta" */,
+			);
 			productRefGroup = 2AB9C4582996911900C28B6D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -269,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AB9C4622996911900C28B6D /* Preview Assets.xcassets in Resources */,
+				2A1B5FED29980A6700DD22DA /* Localizable.strings in Resources */,
 				2AB9C45F2996911900C28B6D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,6 +321,18 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2A1B5FEF29980A6700DD22DA /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2A1B5FEE29980A6700DD22DA /* en */,
+				2A1B5FF029980A6B00DD22DA /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		2AB9C4632996911900C28B6D /* Debug */ = {
@@ -507,6 +533,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2A1B5FE8299809C900DD22DA /* XCRemoteSwiftPackageReference "RDMarkdownKitBeta" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RyoDeveloper/RDMarkdownKitBeta";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.7;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2A1B5FE9299809C900DD22DA /* RDMarkdownKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2A1B5FE8299809C900DD22DA /* XCRemoteSwiftPackageReference "RDMarkdownKitBeta" */;
+			productName = RDMarkdownKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2AB9C44F2996911800C28B6D /* Project object */;
 }

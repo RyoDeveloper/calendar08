@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "rdmarkdownkitbeta",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/RyoDeveloper/RDMarkdownKitBeta",
+      "state" : {
+        "revision" : "8450c7601e1750c12cf85c45981df63751663435",
+        "version" : "0.1.7"
+      }
+    }
+  ],
+  "version" : 2
+}
