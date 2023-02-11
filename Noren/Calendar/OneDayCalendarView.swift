@@ -27,12 +27,19 @@ struct OneDayCalendarView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
             Divider()
             MarkdownView(text: $note)
+                .onChange(of: note) { newValue in
+                    let noteEvent = eventKitManager.fetchNote(date: date)
+                    noteEvent.notes = newValue
+                    eventKitManager.createNote(event: noteEvent)
+                }
         }
         .task {
             plans = eventKitManager.fetchEventAndReminder(start: date)
+            note = eventKitManager.fetchNote(date: date).notes ?? ""
         }
         .onChange(of: date) { newValue in
             plans = eventKitManager.fetchEventAndReminder(start: newValue)
+            note = eventKitManager.fetchNote(date: date).notes ?? ""
         }
     }
 }

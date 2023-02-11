@@ -93,7 +93,9 @@ class EventKitManager: ObservableObject {
         // 述語に一致する全てのイベントを取得
         if let predicate {
             store.events(matching: predicate).forEach { event in
-                plans.append(Plan(event))
+                if event.title != "@NorenNote" {
+                    plans.append(Plan(event))
+                }
             }
         }
         return plans
@@ -167,4 +169,63 @@ class EventKitManager: ObservableObject {
             }
         }
     }
+    
+    /// プランの削除
+    func removePlan(plan: Plan) {
+        if let event = plan.event {
+            // イベントの追加
+            do {
+                try store.remove(event, span: .thisEvent, commit: true)
+            } catch {
+                print(error.localizedDescription)
+            }
+        } else if let reminder = plan.reminder {
+            // リマインダーの追加
+            do {
+                try store.remove(reminder, commit: true)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    /// ノートの取得
+    func fetchNote(date: Date) -> EKEvent {
+        var event = EKEvent(eventStore: store)
+        event.title = "@NorenNote"
+        event.startDate = date
+        event.endDate = date
+        event.isAllDay = true
+        event.calendar = store.defaultCalendarForNewEvents
+        // 開始日コンポーネントの作成
+        // 指定した日付の0:00
+        let start = Calendar.current.startOfDay(for: date)
+        // 終了日コンポーネントの作成
+        // 指定した日付の23:59:1
+        let end = Calendar.current.date(bySettingHour: 23, minute: 59, second: 1, of: start)
+        // イベントストアのインスタンスメソッドから述語を作成
+        var predicate: NSPredicate?
+        if let end {
+            predicate = store.predicateForEvents(withStart: start, end: end, calendars: [store.defaultCalendarForNewEvents!])
+        }
+        // 述語に一致する全てのイベントを取得
+        if let predicate {
+            store.events(matching: predicate).forEach { _event in
+                if _event.title == "@NorenNote", _event.isAllDay {
+                    event = _event
+                }
+            }
+        }
+        return event
+    }
+    
+    /// ノートの追加
+    func createNote(event: EKEvent) {
+        if !(event.notes?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ?? true) {
+            createPlan(plan: Plan(event))
+        } else {
+            removePlan(plan: Plan(event))
+        }
+    }
+
 }
