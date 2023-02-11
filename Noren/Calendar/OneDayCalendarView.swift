@@ -14,10 +14,13 @@ struct OneDayCalendarView: View {
     @State var plans: [Plan] = []
 
     var body: some View {
-        VStack(alignment: .leading) {
-            ForEach(plans, id: \.self) { plan in
-                Text(plan.event?.title ?? "エラー")
+        ScrollView {
+            VStack(alignment: .leading) {
+                ForEach(plans, id: \.self) { plan in
+                    PlanView(plan: plan)
+                }
             }
+            .padding()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .task {
