@@ -10,21 +10,20 @@ import SwiftUI
 
 struct KanbanReminderView: View {
     @EnvironmentObject var eventKitManager: EventKitManager
-    @State var plans: [Plan] = []
 
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading) {
-                ForEach(plans, id: \.self) { plan in
-                    PlanView(plan: plan)
+        ScrollView(showsIndicators: false) {
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(alignment: .top) {
+                    ForEach(eventKitManager.store.sources, id: \.self) { sources in
+                        ForEach(Array(sources.calendars(for: .reminder)), id: \.self) { reminder in
+                            CalendarReminderView(calendar: reminder)
+                                .frame(width: 300)
+                        }
+                    }
                 }
+                .padding()
             }
-            .padding()
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-        .task {
-            plans = eventKitManager.fetchReminder(start: Date(), end: Date())
-            print(plans)
         }
     }
 }

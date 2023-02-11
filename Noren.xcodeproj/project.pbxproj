@@ -21,6 +21,7 @@
 		2A1B5FDC2997D50300DD22DA /* DayCalendarListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1B5FDB2997D50300DD22DA /* DayCalendarListView.swift */; };
 		2A1B5FDE2997D5D400DD22DA /* WeekCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1B5FDD2997D5D400DD22DA /* WeekCalendarView.swift */; };
 		2A1B5FE02997D9A300DD22DA /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1B5FDF2997D9A300DD22DA /* Date.swift */; };
+		2A1B5FE22997E92500DD22DA /* CalendarReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1B5FE12997E92500DD22DA /* CalendarReminderView.swift */; };
 		2A278B392997A270007D57DB /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A278B382997A270007D57DB /* Int.swift */; };
 		2A74DC1E29975E86003926DC /* CreatePlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A74DC1D29975E86003926DC /* CreatePlanView.swift */; };
 		2A74DC2029975E9A003926DC /* CreatePlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A74DC1F29975E9A003926DC /* CreatePlanViewModel.swift */; };
@@ -47,6 +48,7 @@
 		2A1B5FDB2997D50300DD22DA /* DayCalendarListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCalendarListView.swift; sourceTree = "<group>"; };
 		2A1B5FDD2997D5D400DD22DA /* WeekCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekCalendarView.swift; sourceTree = "<group>"; };
 		2A1B5FDF2997D9A300DD22DA /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		2A1B5FE12997E92500DD22DA /* CalendarReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarReminderView.swift; sourceTree = "<group>"; };
 		2A278B382997A270007D57DB /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		2A74DC1D29975E86003926DC /* CreatePlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanView.swift; sourceTree = "<group>"; };
 		2A74DC1F29975E9A003926DC /* CreatePlanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanViewModel.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			children = (
 				2A0ACF5A2996A15400A9DC1F /* ReminderView.swift */,
 				2A18C544299752D6006EEE3F /* KanbanReminderView.swift */,
+				2A1B5FE12997E92500DD22DA /* CalendarReminderView.swift */,
 			);
 			path = Reminder;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A1B5FE22997E92500DD22DA /* CalendarReminderView.swift in Sources */,
 				2A0ACF582996A10C00A9DC1F /* CalendarView.swift in Sources */,
 				2A0ACF612996A1E400A9DC1F /* SettingsView.swift in Sources */,
 				2A1B5FDE2997D5D400DD22DA /* WeekCalendarView.swift in Sources */,

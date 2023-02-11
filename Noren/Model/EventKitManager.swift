@@ -107,7 +107,7 @@ class EventKitManager: ObservableObject {
     }
     
     /// リマインダーの取得
-    func fetchReminder(start: Date, end: Date) -> [Plan] {
+    func fetchReminder(start: Date, end: Date, calendar: [EKCalendar]?) -> [Plan] {
         let semaphore = DispatchSemaphore(value: 0)
         var plans: [Plan] = []
         // 開始日コンポーネントの作成
@@ -135,8 +135,13 @@ class EventKitManager: ObservableObject {
     }
     
     /// リマインダーの取得
+    func fetchReminder(start: Date, end: Date) -> [Plan] {
+        fetchReminder(start: start, end: end, calendar: nil)
+    }
+    
+    /// リマインダーの取得
     func fetchReminder(start: Date) -> [Plan] {
-        fetchReminder(start: start, end: start)
+        fetchReminder(start: start, end: start, calendar: nil)
     }
     
     /// イベントとリマインダーの取得
@@ -145,7 +150,7 @@ class EventKitManager: ObservableObject {
         fetchEvent(start: start, end: start).forEach { plan in
             plans.append(plan)
         }
-        fetchReminder(start: start, end: start).forEach { plan in
+        fetchReminder(start: start, end: start, calendar: nil).forEach { plan in
             plans.append(plan)
         }
         return plans
@@ -227,5 +232,4 @@ class EventKitManager: ObservableObject {
             removePlan(plan: Plan(event))
         }
     }
-
 }
