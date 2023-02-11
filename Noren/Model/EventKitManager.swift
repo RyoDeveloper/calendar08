@@ -131,4 +131,21 @@ class EventKitManager: ObservableObject {
         semaphore.wait()
         return plans
     }
+    
+    /// リマインダーの取得
+    func fetchReminder(start: Date) -> [Plan] {
+        fetchReminder(start: start, end: start)
+    }
+    
+    /// イベントとリマインダーの取得
+    func fetchEventAndReminder(start: Date) -> [Plan] {
+        var plans: [Plan] = []
+        fetchEvent(start: start, end: start).forEach { plan in
+            plans.append(plan)
+        }
+        fetchReminder(start: start, end: start).forEach { plan in
+            plans.append(plan)
+        }
+        return plans
+    }
 }
