@@ -148,4 +148,18 @@ class EventKitManager: ObservableObject {
         }
         return plans
     }
+    
+    /// プランの追加
+    func createPlan(plan: Plan) {
+        if let event = plan.event {
+            // イベントの追加
+            do {
+                try store.save(event, span: .thisEvent, commit: true)
+            } catch {
+                print(error.localizedDescription)
+            }
+        } else if let reminder = plan.reminder {
+            // リマインダーの追加
+        }
+    }
 }
