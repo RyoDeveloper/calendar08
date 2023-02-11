@@ -9,10 +9,15 @@
 import SwiftUI
 
 struct CalendarView: View {
+    @EnvironmentObject var eventKitManager: EventKitManager
     @Binding var date: Date
 
     var body: some View {
         OneDayCalendarView(date: $date)
+            .task {
+                print(eventKitManager.requestCalendar())
+                print(eventKitManager.requestReminder())
+            }
     }
 }
 

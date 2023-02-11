@@ -13,6 +13,7 @@ struct NorenApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(EventKitManager())
         }
     }
 }
