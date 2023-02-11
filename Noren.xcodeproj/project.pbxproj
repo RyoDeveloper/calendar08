@@ -18,6 +18,9 @@
 		2A0ACF6829972DEF00A9DC1F /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0ACF6729972DEF00A9DC1F /* Plan.swift */; };
 		2A0ACF6B29973ECA00A9DC1F /* PlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0ACF6A29973ECA00A9DC1F /* PlanView.swift */; };
 		2A18C545299752D6006EEE3F /* KanbanReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A18C544299752D6006EEE3F /* KanbanReminderView.swift */; };
+		2A1B5FDC2997D50300DD22DA /* DayCalendarListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1B5FDB2997D50300DD22DA /* DayCalendarListView.swift */; };
+		2A1B5FDE2997D5D400DD22DA /* WeekCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1B5FDD2997D5D400DD22DA /* WeekCalendarView.swift */; };
+		2A1B5FE02997D9A300DD22DA /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1B5FDF2997D9A300DD22DA /* Date.swift */; };
 		2A278B392997A270007D57DB /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A278B382997A270007D57DB /* Int.swift */; };
 		2A74DC1E29975E86003926DC /* CreatePlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A74DC1D29975E86003926DC /* CreatePlanView.swift */; };
 		2A74DC2029975E9A003926DC /* CreatePlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A74DC1F29975E9A003926DC /* CreatePlanViewModel.swift */; };
@@ -41,6 +44,9 @@
 		2A0ACF6729972DEF00A9DC1F /* Plan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
 		2A0ACF6A29973ECA00A9DC1F /* PlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanView.swift; sourceTree = "<group>"; };
 		2A18C544299752D6006EEE3F /* KanbanReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanReminderView.swift; sourceTree = "<group>"; };
+		2A1B5FDB2997D50300DD22DA /* DayCalendarListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCalendarListView.swift; sourceTree = "<group>"; };
+		2A1B5FDD2997D5D400DD22DA /* WeekCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekCalendarView.swift; sourceTree = "<group>"; };
+		2A1B5FDF2997D9A300DD22DA /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		2A278B382997A270007D57DB /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		2A74DC1D29975E86003926DC /* CreatePlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanView.swift; sourceTree = "<group>"; };
 		2A74DC1F29975E9A003926DC /* CreatePlanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanViewModel.swift; sourceTree = "<group>"; };
@@ -79,6 +85,8 @@
 			children = (
 				2A0ACF572996A10C00A9DC1F /* CalendarView.swift */,
 				2A0ACF622996A73D00A9DC1F /* OneDayCalendarView.swift */,
+				2A1B5FDD2997D5D400DD22DA /* WeekCalendarView.swift */,
+				2A1B5FDB2997D50300DD22DA /* DayCalendarListView.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -140,6 +148,7 @@
 			children = (
 				2A74DC2229976C65003926DC /* EKEntityType.swift */,
 				2A278B382997A270007D57DB /* Int.swift */,
+				2A1B5FDF2997D9A300DD22DA /* Date.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -267,6 +276,7 @@
 			files = (
 				2A0ACF582996A10C00A9DC1F /* CalendarView.swift in Sources */,
 				2A0ACF612996A1E400A9DC1F /* SettingsView.swift in Sources */,
+				2A1B5FDE2997D5D400DD22DA /* WeekCalendarView.swift in Sources */,
 				2AB9C45D2996911900C28B6D /* ContentView.swift in Sources */,
 				2AF961BE2997AE4E0074AE0E /* MarkdownView.swift in Sources */,
 				2A0ACF5B2996A15400A9DC1F /* ReminderView.swift in Sources */,
@@ -280,9 +290,11 @@
 				2A0ACF5329969BD200A9DC1F /* SidebarView.swift in Sources */,
 				2A0ACF662997221700A9DC1F /* EventKitManager.swift in Sources */,
 				2A74DC2329976C65003926DC /* EKEntityType.swift in Sources */,
+				2A1B5FE02997D9A300DD22DA /* Date.swift in Sources */,
 				2AB9C45B2996911900C28B6D /* NorenApp.swift in Sources */,
 				2A0ACF632996A73D00A9DC1F /* OneDayCalendarView.swift in Sources */,
 				2A0ACF6B29973ECA00A9DC1F /* PlanView.swift in Sources */,
+				2A1B5FDC2997D50300DD22DA /* DayCalendarListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,6 +19,7 @@ struct PlanView: View {
                         .fontWeight(.bold)
                         .foregroundColor(plan.getCalendarColor())
                     Text(event.title)
+                        .lineLimit(2)
                 }
             } else if let reminder = plan.reminder {
                 HStack {
@@ -26,6 +27,7 @@ struct PlanView: View {
                         .fontWeight(.bold)
                         .foregroundColor(plan.getCalendarColor())
                     Text(reminder.title)
+                        .lineLimit(2)
                 }
             }
         }

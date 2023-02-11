@@ -17,14 +17,9 @@ struct OneDayCalendarView: View {
     var body: some View {
         HStack {
             ScrollView {
-                VStack(alignment: .leading) {
-                    ForEach(plans, id: \.self) { plan in
-                        PlanView(plan: plan)
-                    }
-                }
-                .padding()
+                DayCalendarListView(date: $date)
+                    .padding()
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
             Divider()
             MarkdownView(text: $note)
                 .onChange(of: note) { newValue in

@@ -17,7 +17,7 @@ struct CreatePlanView: View {
 
     var body: some View {
         NavigationStack {
-            VStack {
+            VStack(spacing: 0) {
                 Picker("", selection: $viewModel.type) {
                     Text("イベント")
                         .tag(EKEntityType.event)

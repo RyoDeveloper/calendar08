@@ -21,9 +21,19 @@ struct SidebarView: View {
 
     var body: some View {
         List(selection: $page) {
+            Button {
+                date = Date()
+            } label: {
+                Text(Date().getDateDayOfWeek())
+                    .font(.largeTitle)
+                    .fontWeight(.semibold)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.5)
+            }
+            .buttonStyle(.plain)
             DatePicker("", selection: $date, displayedComponents: .date)
                 .datePickerStyle(.graphical)
-                .onChange(of: date) { newValue in
+                .onChange(of: date) { _ in
                     page = .calendar
                 }
             NavigationLink(value: NavigationPage.calendar) {
