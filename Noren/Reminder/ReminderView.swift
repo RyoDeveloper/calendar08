@@ -9,13 +9,21 @@
 import SwiftUI
 
 struct ReminderView: View {
+    @EnvironmentObject var eventKitManager: EventKitManager
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            KanbanReminderView()
+        }
+        .task {
+            print(eventKitManager.requestReminder())
+        }
     }
 }
 
 struct ReminderView_Previews: PreviewProvider {
     static var previews: some View {
         ReminderView()
+            .environmentObject(EventKitManager())
     }
 }

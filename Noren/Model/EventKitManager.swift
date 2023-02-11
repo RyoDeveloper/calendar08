@@ -78,7 +78,7 @@ class EventKitManager: ObservableObject {
     
     /// イベントの取得(開始日と終了日の指定)
     func fetchEvent(start: Date, end: Date) -> [Plan] {
-        var events: [Plan] = []
+        var plans: [Plan] = []
         // 開始日コンポーネントの作成
         // 指定した日付の0:00:0
         let start = Calendar.current.startOfDay(for: start)
@@ -93,14 +93,42 @@ class EventKitManager: ObservableObject {
         // 述語に一致する全てのイベントを取得
         if let predicate {
             store.events(matching: predicate).forEach { event in
-                events.append(Plan(event))
+                plans.append(Plan(event))
             }
         }
-        return events
+        return plans
     }
     
     // イベントの取得(開始日1日の指定)
     func fetchEvent(start: Date) -> [Plan] {
         fetchEvent(start: start, end: start)
+    }
+    
+    /// リマインダーの取得
+    func fetchReminder(start: Date, end: Date) -> [Plan] {
+        let semaphore = DispatchSemaphore(value: 0)
+        var plans: [Plan] = []
+        // 開始日コンポーネントの作成
+        // 指定した前の日付の23:59:59
+        let start = Calendar.current.date(byAdding: .second, value: -1, to: Calendar.current.startOfDay(for: start))
+        // 終了日コンポーネントの作成
+        // 指定した日付の23:59:0
+        let end = Calendar.current.date(bySettingHour: 23, minute: 59, second: 0, of: Calendar.current.startOfDay(for: end))
+        // イベントストアのインスタンスメソッドから述語を作成
+        var predicate: NSPredicate?
+        predicate = store.predicateForIncompleteReminders(withDueDateStarting: start, ending: end, calendars: nil)
+        // 述語に一致する全てのリマインダーを取得
+        if let predicate {
+            store.fetchReminders(matching: predicate) { reminders in
+                if let reminders {
+                    reminders.forEach { reminder in
+                        plans.append(Plan(reminder))
+                    }
+                }
+                semaphore.signal()
+            }
+        }
+        semaphore.wait()
+        return plans
     }
 }
