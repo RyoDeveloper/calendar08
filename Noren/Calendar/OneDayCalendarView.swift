@@ -24,10 +24,10 @@ struct OneDayCalendarView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .task {
-            plans = eventKitManager.fetchEvent(start: date)
+            plans = eventKitManager.fetchEventAndReminder(start: date)
         }
         .onChange(of: date) { newValue in
-            plans = eventKitManager.fetchEvent(start: newValue)
+            plans = eventKitManager.fetchEventAndReminder(start: newValue)
         }
     }
 }
