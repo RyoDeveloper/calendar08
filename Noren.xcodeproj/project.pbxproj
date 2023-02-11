@@ -18,6 +18,9 @@
 		2A0ACF6829972DEF00A9DC1F /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0ACF6729972DEF00A9DC1F /* Plan.swift */; };
 		2A0ACF6B29973ECA00A9DC1F /* PlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0ACF6A29973ECA00A9DC1F /* PlanView.swift */; };
 		2A18C545299752D6006EEE3F /* KanbanReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A18C544299752D6006EEE3F /* KanbanReminderView.swift */; };
+		2A74DC1E29975E86003926DC /* CreatePlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A74DC1D29975E86003926DC /* CreatePlanView.swift */; };
+		2A74DC2029975E9A003926DC /* CreatePlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A74DC1F29975E9A003926DC /* CreatePlanViewModel.swift */; };
+		2A74DC2329976C65003926DC /* EKEntityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A74DC2229976C65003926DC /* EKEntityType.swift */; };
 		2AB9C45B2996911900C28B6D /* NorenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB9C45A2996911900C28B6D /* NorenApp.swift */; };
 		2AB9C45D2996911900C28B6D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB9C45C2996911900C28B6D /* ContentView.swift */; };
 		2AB9C45F2996911900C28B6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AB9C45E2996911900C28B6D /* Assets.xcassets */; };
@@ -36,6 +39,9 @@
 		2A0ACF6729972DEF00A9DC1F /* Plan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
 		2A0ACF6A29973ECA00A9DC1F /* PlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanView.swift; sourceTree = "<group>"; };
 		2A18C544299752D6006EEE3F /* KanbanReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanReminderView.swift; sourceTree = "<group>"; };
+		2A74DC1D29975E86003926DC /* CreatePlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanView.swift; sourceTree = "<group>"; };
+		2A74DC1F29975E9A003926DC /* CreatePlanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanViewModel.swift; sourceTree = "<group>"; };
+		2A74DC2229976C65003926DC /* EKEntityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EKEntityType.swift; sourceTree = "<group>"; };
 		2AB9C4572996911900C28B6D /* Noren.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Noren.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AB9C45A2996911900C28B6D /* NorenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NorenApp.swift; sourceTree = "<group>"; };
 		2AB9C45C2996911900C28B6D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -101,6 +107,7 @@
 		2A0ACF64299721D800A9DC1F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2A74DC2129976BFC003926DC /* Extension */,
 				2A0ACF652997221700A9DC1F /* EventKitManager.swift */,
 				2A0ACF6729972DEF00A9DC1F /* Plan.swift */,
 			);
@@ -113,6 +120,23 @@
 				2A0ACF6A29973ECA00A9DC1F /* PlanView.swift */,
 			);
 			path = Plan;
+			sourceTree = "<group>";
+		};
+		2A74DC1C29975E5C003926DC /* CreatePlan */ = {
+			isa = PBXGroup;
+			children = (
+				2A74DC1D29975E86003926DC /* CreatePlanView.swift */,
+				2A74DC1F29975E9A003926DC /* CreatePlanViewModel.swift */,
+			);
+			path = CreatePlan;
+			sourceTree = "<group>";
+		};
+		2A74DC2129976BFC003926DC /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2A74DC2229976C65003926DC /* EKEntityType.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		2AB9C44E2996911800C28B6D = {
@@ -135,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				2AB9C45A2996911900C28B6D /* NorenApp.swift */,
+				2A74DC1C29975E5C003926DC /* CreatePlan */,
 				2A0ACF6929973E9F00A9DC1F /* Plan */,
 				2A0ACF64299721D800A9DC1F /* Model */,
 				2A0ACF562996A0E300A9DC1F /* Calendar */,
@@ -230,12 +255,15 @@
 				2A0ACF612996A1E400A9DC1F /* SettingsView.swift in Sources */,
 				2AB9C45D2996911900C28B6D /* ContentView.swift in Sources */,
 				2A0ACF5B2996A15400A9DC1F /* ReminderView.swift in Sources */,
+				2A74DC2029975E9A003926DC /* CreatePlanViewModel.swift in Sources */,
 				2A0ACF6829972DEF00A9DC1F /* Plan.swift in Sources */,
+				2A74DC1E29975E86003926DC /* CreatePlanView.swift in Sources */,
 				2A18C545299752D6006EEE3F /* KanbanReminderView.swift in Sources */,
 				2A0ACF5529969BFA00A9DC1F /* DetailView.swift in Sources */,
 				2A0ACF5E2996A1B100A9DC1F /* ClockView.swift in Sources */,
 				2A0ACF5329969BD200A9DC1F /* SidebarView.swift in Sources */,
 				2A0ACF662997221700A9DC1F /* EventKitManager.swift in Sources */,
+				2A74DC2329976C65003926DC /* EKEntityType.swift in Sources */,
 				2AB9C45B2996911900C28B6D /* NorenApp.swift in Sources */,
 				2A0ACF632996A73D00A9DC1F /* OneDayCalendarView.swift in Sources */,
 				2A0ACF6B29973ECA00A9DC1F /* PlanView.swift in Sources */,
