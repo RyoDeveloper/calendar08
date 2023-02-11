@@ -22,10 +22,14 @@ class CreatePlanViewModel: ObservableObject {
     // カレンダー
     @Published var calendar: EKCalendar?
     // メモ
-    @Published var memo = ""
+    @Published var note = ""
+    // 日付
+    @Published var isDay = false
+    // 優先順位
+    @Published var priority = 2
 
     func createPlan(eventKitManager: EventKitManager) {
-        let plansTitle = title.split(whereSeparator: \.isWhitespace)
+        let plansTitle = title.split(whereSeparator: \.isNewline)
 
         if type == .event {
             // イベントの追加
@@ -36,10 +40,24 @@ class CreatePlanViewModel: ObservableObject {
                 event.startDate = start
                 event.endDate = end
                 event.calendar = calendar ?? eventKitManager.store.defaultCalendarForNewEvents
+                event.notes = note
                 eventKitManager.createPlan(plan: Plan(event))
             }
         } else if type == .reminder {
             // リマインダーの追加
+            plansTitle.forEach { title in
+                let reminder = EKReminder(eventStore: eventKitManager.store)
+                reminder.title = String(title)
+                if isDay && isAllDay {
+                    reminder.dueDateComponents = Calendar.current.dateComponents([.calendar, .year, .month, .day], from: start)
+                } else if isDay {
+                    reminder.dueDateComponents = Calendar.current.dateComponents([.calendar, .year, .month, .day, .hour, .minute], from: start)
+                }
+                reminder.priority = priority.getPriority()
+                reminder.calendar = calendar ?? eventKitManager.store.defaultCalendarForNewReminders()
+                reminder.notes = note
+                eventKitManager.createPlan(plan: Plan(reminder))
+            }
         }
     }
 }
