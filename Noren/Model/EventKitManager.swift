@@ -75,4 +75,32 @@ class EventKitManager: ObservableObject {
             return false
         }
     }
+    
+    /// イベントの取得(開始日と終了日の指定)
+    func fetchEvent(start: Date, end: Date) -> [Plan] {
+        var events: [Plan] = []
+        // 開始日コンポーネントの作成
+        // 指定した日付の0:00:0
+        let start = Calendar.current.startOfDay(for: start)
+        // 終了日コンポーネントの作成
+        // 指定した日付の23:59:1
+        let end = Calendar.current.date(bySettingHour: 23, minute: 59, second: 1, of: end)
+        // イベントストアのインスタンスメソッドから述語を作成
+        var predicate: NSPredicate?
+        if let end {
+            predicate = store.predicateForEvents(withStart: start, end: end, calendars: nil)
+        }
+        // 述語に一致する全てのイベントを取得
+        if let predicate {
+            store.events(matching: predicate).forEach { event in
+                events.append(Plan(event))
+            }
+        }
+        return events
+    }
+    
+    // イベントの取得(開始日1日の指定)
+    func fetchEvent(start: Date) -> [Plan] {
+        fetchEvent(start: start, end: start)
+    }
 }

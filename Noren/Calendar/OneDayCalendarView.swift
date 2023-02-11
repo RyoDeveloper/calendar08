@@ -9,15 +9,29 @@
 import SwiftUI
 
 struct OneDayCalendarView: View {
+    @EnvironmentObject var eventKitManager: EventKitManager
     @Binding var date: Date
+    @State var plans: [Plan] = []
 
     var body: some View {
-        Text("\(date)")
+        VStack(alignment: .leading) {
+            ForEach(plans, id: \.self) { plan in
+                Text(plan.event?.title ?? "エラー")
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+        .task {
+            plans = eventKitManager.fetchEvent(start: date)
+        }
+        .onChange(of: date) { newValue in
+            plans = eventKitManager.fetchEvent(start: newValue)
+        }
     }
 }
 
 struct OneDayCalendarView_Previews: PreviewProvider {
     static var previews: some View {
-        OneDayCalendarView(date: .constant(Date()))
+        OneDayCalendarView(date: .constant(Date()), plans: [])
+            .environmentObject(EventKitManager())
     }
 }

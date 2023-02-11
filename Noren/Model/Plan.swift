@@ -9,7 +9,7 @@
 import EventKit
 import Foundation
 
-struct Plan {
+struct Plan: Hashable {
     var event: EKEvent?
     var reminder: EKReminder?
     var date: Date?
