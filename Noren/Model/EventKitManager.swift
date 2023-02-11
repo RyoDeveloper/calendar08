@@ -160,6 +160,11 @@ class EventKitManager: ObservableObject {
             }
         } else if let reminder = plan.reminder {
             // リマインダーの追加
+            do {
+                try store.save(reminder, commit: true)
+            } catch {
+                print(error.localizedDescription)
+            }
         }
     }
 }

@@ -18,6 +18,7 @@
 		2A0ACF6829972DEF00A9DC1F /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0ACF6729972DEF00A9DC1F /* Plan.swift */; };
 		2A0ACF6B29973ECA00A9DC1F /* PlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0ACF6A29973ECA00A9DC1F /* PlanView.swift */; };
 		2A18C545299752D6006EEE3F /* KanbanReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A18C544299752D6006EEE3F /* KanbanReminderView.swift */; };
+		2A278B392997A270007D57DB /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A278B382997A270007D57DB /* Int.swift */; };
 		2A74DC1E29975E86003926DC /* CreatePlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A74DC1D29975E86003926DC /* CreatePlanView.swift */; };
 		2A74DC2029975E9A003926DC /* CreatePlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A74DC1F29975E9A003926DC /* CreatePlanViewModel.swift */; };
 		2A74DC2329976C65003926DC /* EKEntityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A74DC2229976C65003926DC /* EKEntityType.swift */; };
@@ -39,6 +40,7 @@
 		2A0ACF6729972DEF00A9DC1F /* Plan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
 		2A0ACF6A29973ECA00A9DC1F /* PlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanView.swift; sourceTree = "<group>"; };
 		2A18C544299752D6006EEE3F /* KanbanReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanReminderView.swift; sourceTree = "<group>"; };
+		2A278B382997A270007D57DB /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		2A74DC1D29975E86003926DC /* CreatePlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanView.swift; sourceTree = "<group>"; };
 		2A74DC1F29975E9A003926DC /* CreatePlanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanViewModel.swift; sourceTree = "<group>"; };
 		2A74DC2229976C65003926DC /* EKEntityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EKEntityType.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				2A74DC2229976C65003926DC /* EKEntityType.swift */,
+				2A278B382997A270007D57DB /* Int.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				2A0ACF5B2996A15400A9DC1F /* ReminderView.swift in Sources */,
 				2A74DC2029975E9A003926DC /* CreatePlanViewModel.swift in Sources */,
 				2A0ACF6829972DEF00A9DC1F /* Plan.swift in Sources */,
+				2A278B392997A270007D57DB /* Int.swift in Sources */,
 				2A74DC1E29975E86003926DC /* CreatePlanView.swift in Sources */,
 				2A18C545299752D6006EEE3F /* KanbanReminderView.swift in Sources */,
 				2A0ACF5529969BFA00A9DC1F /* DetailView.swift in Sources */,
