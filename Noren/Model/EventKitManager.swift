@@ -118,7 +118,7 @@ class EventKitManager: ObservableObject {
         let end = Calendar.current.date(bySettingHour: 23, minute: 59, second: 0, of: Calendar.current.startOfDay(for: end))
         // イベントストアのインスタンスメソッドから述語を作成
         var predicate: NSPredicate?
-        predicate = store.predicateForIncompleteReminders(withDueDateStarting: start, ending: end, calendars: nil)
+        predicate = store.predicateForIncompleteReminders(withDueDateStarting: start, ending: end, calendars: calendar)
         // 述語に一致する全てのリマインダーを取得
         if let predicate {
             store.fetchReminders(matching: predicate) { reminders in

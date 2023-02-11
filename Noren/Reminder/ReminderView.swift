@@ -8,20 +8,42 @@
 
 import SwiftUI
 
+enum ReminderPage {
+    case kanban
+    case vertical
+}
+
 struct ReminderView: View {
     @EnvironmentObject var eventKitManager: EventKitManager
+    @State var page = ReminderPage.kanban
     @State var isShowCreatePlanView = false
 
     var body: some View {
-        VStack {
-            KanbanReminderView()
-        }
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    isShowCreatePlanView = true
-                } label: {
-                    Label("新規", systemImage: "plus")
+        NavigationStack {
+            Group {
+                switch page {
+                case .kanban:
+                    KanbanReminderView()
+                case .vertical:
+                    VerticalReminderView()
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Picker("", selection: $page) {
+                        Text("カンバン")
+                            .tag(ReminderPage.kanban)
+                        Text("縦")
+                            .tag(ReminderPage.vertical)
+                    }
+                    .pickerStyle(.segmented)
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        isShowCreatePlanView = true
+                    } label: {
+                        Label("新規", systemImage: "plus")
+                    }
                 }
             }
         }
