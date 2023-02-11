@@ -26,6 +26,7 @@
 		2AB9C45D2996911900C28B6D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB9C45C2996911900C28B6D /* ContentView.swift */; };
 		2AB9C45F2996911900C28B6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AB9C45E2996911900C28B6D /* Assets.xcassets */; };
 		2AB9C4622996911900C28B6D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AB9C4612996911900C28B6D /* Preview Assets.xcassets */; };
+		2AF961BE2997AE4E0074AE0E /* MarkdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF961BD2997AE4E0074AE0E /* MarkdownView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		2AB9C45C2996911900C28B6D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2AB9C45E2996911900C28B6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2AB9C4612996911900C28B6D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2AF961BD2997AE4E0074AE0E /* MarkdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				2AB9C45A2996911900C28B6D /* NorenApp.swift */,
+				2AF961BC2997AE0D0074AE0E /* Markdown  */,
 				2A74DC1C29975E5C003926DC /* CreatePlan */,
 				2A0ACF6929973E9F00A9DC1F /* Plan */,
 				2A0ACF64299721D800A9DC1F /* Model */,
@@ -182,6 +185,14 @@
 				2AB9C4612996911900C28B6D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2AF961BC2997AE0D0074AE0E /* Markdown  */ = {
+			isa = PBXGroup;
+			children = (
+				2AF961BD2997AE4E0074AE0E /* MarkdownView.swift */,
+			);
+			path = "Markdown ";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +268,7 @@
 				2A0ACF582996A10C00A9DC1F /* CalendarView.swift in Sources */,
 				2A0ACF612996A1E400A9DC1F /* SettingsView.swift in Sources */,
 				2AB9C45D2996911900C28B6D /* ContentView.swift in Sources */,
+				2AF961BE2997AE4E0074AE0E /* MarkdownView.swift in Sources */,
 				2A0ACF5B2996A15400A9DC1F /* ReminderView.swift in Sources */,
 				2A74DC2029975E9A003926DC /* CreatePlanViewModel.swift in Sources */,
 				2A0ACF6829972DEF00A9DC1F /* Plan.swift in Sources */,

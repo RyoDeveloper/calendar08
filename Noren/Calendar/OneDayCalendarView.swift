@@ -12,22 +12,34 @@ struct OneDayCalendarView: View {
     @EnvironmentObject var eventKitManager: EventKitManager
     @Binding var date: Date
     @State var plans: [Plan] = []
+    @State var note = ""
 
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading) {
-                ForEach(plans, id: \.self) { plan in
-                    PlanView(plan: plan)
+        HStack {
+            ScrollView {
+                VStack(alignment: .leading) {
+                    ForEach(plans, id: \.self) { plan in
+                        PlanView(plan: plan)
+                    }
                 }
+                .padding()
             }
-            .padding()
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            Divider()
+            MarkdownView(text: $note)
+                .onChange(of: note) { newValue in
+                    let noteEvent = eventKitManager.fetchNote(date: date)
+                    noteEvent.notes = newValue
+                    eventKitManager.createNote(event: noteEvent)
+                }
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .task {
             plans = eventKitManager.fetchEventAndReminder(start: date)
+            note = eventKitManager.fetchNote(date: date).notes ?? ""
         }
         .onChange(of: date) { newValue in
             plans = eventKitManager.fetchEventAndReminder(start: newValue)
+            note = eventKitManager.fetchNote(date: date).notes ?? ""
         }
     }
 }
