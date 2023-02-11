@@ -34,7 +34,16 @@ struct CreatePlanView: View {
                         DatePicker("開始", selection: $viewModel.start, displayedComponents: viewModel.isAllDay ? .date : [.date, .hourAndMinute])
                         DatePicker("終了", selection: $viewModel.end, displayedComponents: viewModel.isAllDay ? .date : [.date, .hourAndMinute])
                         Picker("カレンダー", selection: $viewModel.calendar) {
-                            Text("カレンダー")
+                            ForEach(eventKitManager.store.sources, id: \.self) { sources in
+                                Section(sources.title) {
+                                    ForEach(Array(sources.calendars(for: .event)), id: \.self) { calendar in
+                                        if calendar.allowsContentModifications {
+                                            Text(calendar.title)
+                                                .tag(calendar as EKCalendar?)
+                                        }
+                                    }
+                                }
+                            }
                         }
                         TextField("メモ", text: $viewModel.memo, axis: .vertical)
                     }
@@ -62,6 +71,9 @@ struct CreatePlanView: View {
             }
             .navigationTitle("\(viewModel.title.split(whereSeparator: \.isWhitespace).count)個の" + viewModel.type.getName())
             .navigationBarTitleDisplayMode(.inline)
+        }
+        .task {
+            viewModel.calendar = eventKitManager.store.defaultCalendarForNewEvents
         }
     }
 }
