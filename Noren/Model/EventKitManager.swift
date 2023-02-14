@@ -11,6 +11,7 @@ import Foundation
 
 class EventKitManager: ObservableObject {
     var store = EKEventStore()
+    var noteKeyWord = "@NorenDay"
     
     /// カレンダーへのアクセスを要求
     func requestCalendar() -> Bool {
@@ -93,7 +94,7 @@ class EventKitManager: ObservableObject {
         // 述語に一致する全てのイベントを取得
         if let predicate {
             store.events(matching: predicate).forEach { event in
-                if event.title != "@NorenNote" {
+                if event.title != noteKeyWord {
                     plans.append(Plan(event))
                 }
             }
@@ -197,7 +198,7 @@ class EventKitManager: ObservableObject {
     /// ノートの取得
     func fetchNote(date: Date) -> EKEvent {
         var event = EKEvent(eventStore: store)
-        event.title = "@NorenNote"
+        event.title = noteKeyWord
         event.startDate = date
         event.endDate = date
         event.isAllDay = true
@@ -211,12 +212,12 @@ class EventKitManager: ObservableObject {
         // イベントストアのインスタンスメソッドから述語を作成
         var predicate: NSPredicate?
         if let end {
-            predicate = store.predicateForEvents(withStart: start, end: end, calendars: [store.defaultCalendarForNewEvents!])
+            predicate = store.predicateForEvents(withStart: start, end: end, calendars: [store.defaultCalendarForNewEvents ?? EKCalendar(for: .event, eventStore: store)])
         }
         // 述語に一致する全てのイベントを取得
         if let predicate {
             store.events(matching: predicate).forEach { _event in
-                if _event.title == "@NorenNote", _event.isAllDay {
+                if _event.title == noteKeyWord, _event.isAllDay {
                     event = _event
                 }
             }

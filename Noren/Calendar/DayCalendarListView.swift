@@ -31,7 +31,7 @@ struct DayCalendarListView: View {
 
 struct DayCalendarListView_Previews: PreviewProvider {
     static var previews: some View {
-        DayCalendarListView(date: .constant(Date()))
+        DayCalendarListView(date: .constant(Date()), plans: [Plan(EventKitManager())])
             .environmentObject(EventKitManager())
     }
 }

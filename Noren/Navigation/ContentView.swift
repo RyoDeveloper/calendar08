@@ -15,8 +15,10 @@ struct ContentView: View {
     var body: some View {
         NavigationSplitView {
             SidebarView(page: $page, date: $date)
+                .navigationBarTitleDisplayMode(.inline)
         } detail: {
             DetailView(page: $page, date: $date)
+                .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

@@ -29,5 +29,6 @@ struct VerticalReminderView: View {
 struct VerticalReminderView_Previews: PreviewProvider {
     static var previews: some View {
         VerticalReminderView()
+            .environmentObject(EventKitManager())
     }
 }

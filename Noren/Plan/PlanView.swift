@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct PlanView: View {
+    @EnvironmentObject var eventKitManager: EventKitManager
     @State var plan: Plan
 
     var body: some View {
@@ -35,6 +36,13 @@ struct PlanView: View {
         .padding()
         .background(Color.gray.opacity(0.1))
         .cornerRadius(10)
+        .contextMenu {
+            Button(role: .destructive) {
+                eventKitManager.removePlan(plan: plan)
+            } label: {
+                Label("削除", systemImage: "trash")
+            }
+        }
     }
 }
 

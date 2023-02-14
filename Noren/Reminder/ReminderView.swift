@@ -19,7 +19,6 @@ struct ReminderView: View {
     @State var isShowCreatePlanView = false
 
     var body: some View {
-        NavigationStack {
             Group {
                 switch page {
                 case .kanban:
@@ -46,7 +45,6 @@ struct ReminderView: View {
                     }
                 }
             }
-        }
         .sheet(isPresented: $isShowCreatePlanView, content: {
             CreatePlanView()
         })
@@ -59,7 +57,9 @@ struct ReminderView: View {
 
 struct ReminderView_Previews: PreviewProvider {
     static var previews: some View {
-        ReminderView()
-            .environmentObject(EventKitManager())
+        NavigationStack {
+            ReminderView()
+                .environmentObject(EventKitManager())
+        }
     }
 }

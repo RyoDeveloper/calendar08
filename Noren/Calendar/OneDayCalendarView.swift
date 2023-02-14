@@ -11,7 +11,6 @@ import SwiftUI
 struct OneDayCalendarView: View {
     @EnvironmentObject var eventKitManager: EventKitManager
     @Binding var date: Date
-    @State var plans: [Plan] = []
     @State var note = ""
 
     var body: some View {
@@ -29,11 +28,9 @@ struct OneDayCalendarView: View {
                 }
         }
         .task {
-            plans = eventKitManager.fetchEventAndReminder(start: date)
             note = eventKitManager.fetchNote(date: date).notes ?? ""
         }
         .onChange(of: date) { newValue in
-            plans = eventKitManager.fetchEventAndReminder(start: newValue)
             note = eventKitManager.fetchNote(date: date).notes ?? ""
         }
     }
@@ -41,7 +38,7 @@ struct OneDayCalendarView: View {
 
 struct OneDayCalendarView_Previews: PreviewProvider {
     static var previews: some View {
-        OneDayCalendarView(date: .constant(Date()), plans: [])
+        OneDayCalendarView(date: .constant(Date()))
             .environmentObject(EventKitManager())
     }
 }

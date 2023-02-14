@@ -20,8 +20,7 @@ struct CalendarView: View {
     @State var isShowCreatePlanView = false
 
     var body: some View {
-        NavigationStack {
-            Group {
+        Group {
                 switch page {
                 case .onDay:
                     OneDayCalendarView(date: $date)
@@ -52,7 +51,6 @@ struct CalendarView: View {
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
-        }
         .sheet(isPresented: $isShowCreatePlanView, content: {
             CreatePlanView()
         })
@@ -65,7 +63,8 @@ struct CalendarView: View {
 
 struct CalendarView_Previews: PreviewProvider {
     static var previews: some View {
-        CalendarView(date: .constant(Date()))
-            .environmentObject(EventKitManager())
+        NavigationStack {
+            CalendarView(date: .constant(Date()))
+            .environmentObject(EventKitManager())}
     }
 }
