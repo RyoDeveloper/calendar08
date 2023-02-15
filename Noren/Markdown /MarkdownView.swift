@@ -24,7 +24,13 @@ struct MarkdownView: View {
                 .tabItem {
                     Label("エディター", systemImage: "square.and.pencil")
                 }
-            Markdown($text)
+            VStack(spacing: 0) {
+                Rectangle()
+                    .foregroundColor(Color(.systemBackground))
+                    .frame(height: 1)
+                Markdown($text)
+            }
+            
                 .tabItem {
                     Label("プレビュー", systemImage: "number")
                 }

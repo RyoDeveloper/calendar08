@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/RyoDeveloper/RDMarkdownKitBeta",
       "state" : {
-        "revision" : "8450c7601e1750c12cf85c45981df63751663435",
-        "version" : "0.1.7"
+        "revision" : "e10a97807ba297608d5ac77da73b4a308cf920fa",
+        "version" : "0.2.3"
       }
     }
   ],
